@@ -1,0 +1,15 @@
+.lightbulb-container {
+    position: relative;
+}
+
+.lightbulb {
+    width: 100px;
+    height: 100px;
+}
+
+.glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
