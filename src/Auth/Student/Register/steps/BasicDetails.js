@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
+// import { PiWarningFill } from "react-icons/pi";
+
+
 
 
 export default function BasicDetails({ nextStep }) {
   const [formData, setFormData] = useState({
     firstName: "",
+    middleName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
@@ -21,7 +26,19 @@ export default function BasicDetails({ nextStep }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
+  };
+
+  const handleNextClick = () => {
+    try {
+      Cookies.set("formData", JSON.stringify(formData));
+      console.log("Form data stored successfully:", formData);
+      console.log("Stored Cookie:", Cookies.get("formData"));
+
+      nextStep();
+    } catch (error) {
+      console.error("Error storing form data:", error);
+    }
   };
   return (
     <div>
@@ -30,38 +47,42 @@ export default function BasicDetails({ nextStep }) {
         <hr />
         <br />
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-            />
+          <div className="studentname">
+
+            <div className="form-group">
+              <label htmlFor="firstName">First Name:</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="middleName">Middle Name:</label>
+              <input
+                type="text"
+                id="middleName"
+                name="middleName"
+                value={formData.middleName}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="lastName">Last Name:</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+              />
+            </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">College Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
+          
 
           <div className="form-group">
             <label htmlFor="phoneNumber">Phone Number:</label>
@@ -76,33 +97,36 @@ export default function BasicDetails({ nextStep }) {
               />
             </div>
           </div>
+          {/* <div className="studentname"> */}
+          <div>
 
-          <div className="form-group">
-            <label htmlFor="dob">Date of Birth:</label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              value={formData.dob}
-              onChange={handleChange}
-            />
+            <div className="form-group">
+              <label htmlFor="dob">Date of Birth:</label>
+
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                value={formData.dob}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="gender">Gender:</label>
+              <select
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="gender">Gender:</label>
-            <select
-              id="gender"
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-            >
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
           <div className="form-group">
             <label htmlFor="address">Address:</label>
             <textarea
@@ -113,13 +137,25 @@ export default function BasicDetails({ nextStep }) {
             ></textarea>
           </div>
           <br />
+          <div className="form-group">
+            <label htmlFor="email">College Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {/* <button>  <PiWarningFill />Verify
+            </button> */}
+          </div>
           <div className="btnpostion">
             <span></span>
 
             <button
               type="button"
               className="btn btn-primary next-step"
-              onClick={nextStep}
+              onClick={handleNextClick}
             >
               next &gt;
             </button>

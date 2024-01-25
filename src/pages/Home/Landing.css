@@ -1,15 +1,65 @@
-.lightbulb-container {
-    position: relative;
-}
+/* Landing.css */
 
-.lightbulb {
-    width: 100px;
-    height: 100px;
+.lightbulb-container {
+  position: relative;
+  width: 100vw;
 }
 
 .glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.imagemove{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+
+}
+.ranking-section,
+.recommendation-section,
+.development-section,
+.entity-section,
+.ai-technology-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Adjustments for small screens */
+
+@media only screen and (max-width: 600px) {
+  .ranking-section,
+  .recommendation-section,
+  .development-section,
+  .entity-section,
+  .ai-technology-section {
+    padding: 20px;
+  }
+
+  .footer-container {
+    margin-top: 10%;
+  }
+}
+
+.footer-container {
+  margin-top: 20px; /* Adjusted margin */
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border-top: 1px solid #ddd;
 }

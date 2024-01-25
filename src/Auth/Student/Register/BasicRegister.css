@@ -2,14 +2,14 @@
     max-width: 800px;
     margin: auto;
     padding: 10px;
-    border: 1px solid #b3b3b3;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
 
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     margin-bottom: 15px;
 
 }
@@ -31,7 +31,7 @@ textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 3px;
 }
 
@@ -50,8 +50,10 @@ textarea {
 .custom-dropdown {
     font-size: 14px;
     color: black;
-    background-color: white;
-    font-family: 'Space Mono', monospace;
+    background-color: var( --text-color);
+    font-family: 'Heebo', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Space Mono', monospace; */
 }
 
 .sectionedu {
@@ -71,7 +73,16 @@ textarea {
     margin-bottom: 5px;
    
 }
-
+@media (max-width: 767px) {
+    .studentname {
+        flex-direction: column; 
+        align-items: stretch;    
+    }
+    .boarddetails{
+        flex-direction: column;   
+        align-items: stretch;
+    }
+}
 
 @media (min-width: 768px) {
     .form-group {
@@ -101,5 +112,54 @@ textarea {
        
     }
 
-   
 }
+
+.h3higlight
+{
+    background-color: rgb(255, 129, 129);
+    display: flex;
+    justify-content: center;
+}
+
+
+.studentname{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.boarddetails{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    margin: 5px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding-top: 0px;
+    border-radius: 5px;
+  }
+  
+  .tag button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 5px;
+  }
+  
+
+  .linkvalid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  

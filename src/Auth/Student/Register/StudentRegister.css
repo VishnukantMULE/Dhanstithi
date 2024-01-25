@@ -1,7 +1,12 @@
 body {
-  background-color: #ffffff;
-  color: #000000;
-  font-family: 'Space Mono', monospace;
+  background-color: var(--white-background);
+  color: var(--balck-txt-color);
+  /* font-family: 'Heebo', sans-serif;
+   */
+   font-family: 'Rethink Sans', sans-serif;
+
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Space Mono', monospace; */
   margin: 0;
 
 }

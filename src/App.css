@@ -1,3 +1,21 @@
+:root {
+  --background: #000000;
+  --text-color: #ffffff;
+  --white-background: #ffffff;
+  --white: #fff;
+  --input-background: black;
+  --input-color:white;
+  --input-border:black;
+  --border-color:rgb(42, 42, 42);
+  --button-color:rgb(255, 255, 255);
+  --button-background:black;
+  --balck-txt-color:black;
+}
+
+
+
+
+
 .App {
   text-align: center;
 }
